@@ -1,0 +1,104 @@
+App.java
+
+///////////////////////////////////////////
+
+package view;
+import java.util.Scanner;
+import model.Aluno;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner teclado = new Scanner(System.in);
+        System.out.printIn(x:"Digite a primeira nota:");
+        float n1 = teclado.nextFloat();
+        System.out.printIn(x:"Digite a segunda nota:");
+        float n2 = teclado.nextFloat();
+        System.out.printIn(x:"Digite a terceira nota:");
+        float n3 = teclado.nextFloat();
+        System.out.printIn(x:"Digite a quarta nota:");
+        float n4 = teclado.nextFloat();
+
+        Aluno aluno = new Aluno(n1, n2, n3, n4);
+        String mostrarStatus = aluno.mostrarStatus();
+
+            if (status.contains(s:"Aluno em exame")) {
+            System.out.printIn(x:"Digite a nota do exame:");
+            float notaExame = teclado.nextFloat();
+            aluno.setNotaExame(notaExame);
+
+            System.out.printIn(aluno.verificarStatusAluno());
+             }
+
+           }
+        }
+        
+    
+
+
+*********************************************************************
+
+
+
+Aluno.java
+
+////////////////////////////////////
+
+package model;
+public class Aluno {
+    private float n1;
+    private float n2;
+    private float n3;
+    private float n4;
+    private float media;
+
+    public Aluno(float n1, float n2, float n3, float n4){
+        this.n1 = n1;
+        this.n2 = n2;
+        this.n3 = n3;
+        this.n4 = n4;
+        this.calcularMedia();
+        
+    }
+    
+    private void calcularMedia() {
+        this.media = (n1 + n2 + n3 +n4) / 4;
+    }
+    
+    public String verificarStatusAluno() {
+          StringBuilder builder = new StringBuilder("Nota exame: ");
+          builder.append(this.notaExame);
+
+          this.media = (this.media + this.notaExame) / 2;
+
+          if(this.media >= 5) {
+            builder.append(str:"\n Aluno aprovado");
+          } else {
+            builder.append(str: "\nAluno reprovado");
+          }
+          builder.append(str:"Média final: ");
+          builder.append(this.media);
+          return builder.toString();
+    }
+
+        public String mostrarStatus() {
+        StringBuilder builder = new StringBuilder
+    }
+        (str:"Media: ");
+        builder.append(media);
+
+        if(media>=7) {
+            builder.append(str:"\nAluno aprovado");
+        }else if(media >=5) {
+            builder.append(str:"\nAluno em exame");
+           
+            //TODO receber a nota do exame
+        } else {
+            builder.append(str:"Aluno reprovado");
+
+        }
+        return builder.toString();
+    
+    public void setNotaExame(float notaExame){
+        this.notaExame = notaExame;
+    }
+}
